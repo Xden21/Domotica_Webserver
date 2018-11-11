@@ -1,0 +1,32 @@
+<script src="/socket.io/socket.io.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="./javascripts/socketIO.js"></script>
+<script src="./javascripts/menuSelectors.js"></script>
+
+<header>
+  <h1 class="header">
+      Domotica Debree
+  </h1>
+</header>
+
+<main>
+  <div class="tabControl">
+    {{! Here the groups will be generated}}
+    {{#each groups}}
+      {{>groupBuilder this}}
+    {{/each}}
+  </div>
+
+  <div class="tabViewPort">
+    {{! Here the group content will be generated}}
+    {{#each groups}}
+      {{>viewBuilder this}}
+    {{/each}}
+  </div>
+  
+</main>
+
+<footer>
+  <p>Modbus Host: {{domoticaIp}}</p>
+  <p>Modbus Port: {{domoticaPort}}</p>
+</footer>

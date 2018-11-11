@@ -1,0 +1,262 @@
+body {
+  display: flex;
+  height: 100vh;
+  flex-direction: column;
+  margin: 0;
+}
+
+header {
+  left: 0;
+  top: 0;
+}
+
+footer {
+  left: 0;
+  bottom: 0;
+}
+
+main {
+  flex: auto;
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+}
+
+h1.header {
+  background-color: rgb(121, 121, 121);
+  color: rgb(218, 218, 218);
+  margin: 0;
+  padding: 5px 5px 5px 10px;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+div.tabControl {  
+  background-color: #f1f1f1;
+  flex: 1 0.5;
+}
+
+div.tabItem {
+  background-color: #f1f1f1;
+  display: flex;
+  flex-direction: row;
+  border: 1px solid rgb(160, 160, 160);
+  border-top: none;
+}
+
+div.tabItem:first-child {
+  border-top: 1px solid rgb(160, 160, 160)
+}
+
+div.panel > div.tabItem {
+  border-top: none;
+}
+div.tabItem.active {
+  background-color: #f1f1f1;
+}
+
+button.accButton {
+  display: block;
+  float: left;
+  background-color: inherit;
+  color: black;
+  padding: 22px 16px;
+  border: none;
+  outline: none;
+  text-align: left;
+  cursor: pointer;
+  transition: 0.3s;
+  font-size: 17px;
+  flex: 1;
+}
+button.accButton.short {
+  flex: 4 0.5;
+  border-right: 1px solid rgb(160, 160, 160)
+}
+
+button.viewButton {
+  display: block;
+  float: left;
+  background-color: inherit;
+  color: black;
+  padding: 22px 16px;
+  border: none; 
+  outline: none;
+  text-align: center;
+  cursor: pointer;
+  transition: 0.3s;
+  font-size: 17px;
+  flex: 1;
+}
+button.viewButton.short {
+  border-left: none;
+  flex: 1 1;
+}
+
+div.panel button {
+  border: none;
+}
+
+button.accButton:hover, button.viewButton:hover, button.accButton.active, button.viewButton.active {
+  background-color: rgb(160, 160, 160)
+}
+
+div.panel {
+  display: none;
+  padding-left: 10%;
+  border: 1px solid rgb(160, 160, 160);
+  border-left: none;
+  border-right: none;  
+  margin-bottom: -1px;
+}
+
+div.tabViewPort {
+  padding: 5px;
+  float: left;
+  display: flex;
+  flex-direction: row;
+  flex: 2 1;
+}
+
+div.tabContent {
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-content: flex-start;
+}
+
+div.tabContent.hidden {
+  display: none;
+}
+
+div.contentBlock {
+  display: flex;
+  font-size: 1.2em;
+  padding: 10px 20px;
+  border-bottom: 1px solid rgb(160, 160, 160);
+}
+
+div.contentBlockHeader {
+  flex: 1 0.5 300px;
+  display: flex;
+  padding-left: 20px;
+  font-weight: bold;
+  font-size: 1.4em;
+}
+
+div.contentBlockText {
+  flex: 1 0.5 300px;
+  display: flex;
+  padding-left: 20px;
+}
+
+div.contentBlockElement {
+  flex: 3 1 200px;
+  display: flex;
+  justify-content: flex-start;
+  align-content: center;
+}
+
+/* The switch - the box around the slider */
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 60px;
+  height: 34px;  
+  margin:auto 0;
+}
+
+/* Hide default HTML checkbox */
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+/* The slider */
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 26px;
+  width: 26px;
+  left: 4px;
+  bottom: 4px;
+  background-color: white;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+input:checked + .slider {
+  background-color: #2196F3;
+}
+
+input:focus + .slider {
+  box-shadow: 0 0 1px #2196F3;
+}
+
+input:checked + .slider:before {
+  -webkit-transform: translateX(26px);
+  -ms-transform: translateX(26px);
+  transform: translateX(26px);
+}
+
+/* Rounded sliders */
+.slider.round {
+  border-radius: 34px;
+}
+
+.slider.round:before {
+  border-radius: 50%;
+}
+
+div.indicator {
+  background-color: orangered;
+  border: 3px solid #ccc;
+  text-align:  center;
+  width: 54px;
+  height: 28px;
+  border-radius: 34px;
+  transition: background-color 0.2s;  
+  position: relative;
+  display: inline-block;
+  margin: auto 0;
+}
+div.on {
+  background-color: rgb(68, 209, 68);
+}
+
+button.pulseButton {
+  background-color: rgb(226, 226, 226);
+  color: black;
+  padding: 5px 5px;
+  border: 3px ridge rgb(160, 160, 160); 
+  outline: none;
+  text-align: center;
+  cursor: pointer;
+  transition: 0.3s;
+  font-size: 17px;
+  width: 80px;
+}
+
+button.pulseButton:hover {
+  background-color: rgb(121, 121, 121);
+}
+
+/* Footer */
+footer {
+  background-color: rgb(121, 121, 121);
+  color: rgb(218, 218, 218);
+  padding: 3px 3px 3px 7px;
+}

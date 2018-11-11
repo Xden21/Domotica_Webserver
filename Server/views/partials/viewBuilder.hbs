@@ -1,0 +1,13 @@
+{{! context is a group}}
+{{#if hasView}}
+  <div class="tabContent hidden" id="{{name}}Content">
+    {{>viewParts/buttonBuilder this}}
+    {{>viewParts/toggleBuilder this}}
+    {{>viewParts/inputBuilder this}}
+  </div>
+{{/if}}
+{{#if groups}}
+  {{#each groups}}
+    {{>viewBuilder this}}
+  {{/each}}
+{{/if}}

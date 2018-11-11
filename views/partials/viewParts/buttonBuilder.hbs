@@ -1,0 +1,19 @@
+{{! context is a group}}
+{{#if buttons.length}}
+  <div class="contentBlock">
+    <div class="contentBlockHeader">
+      <span>Buttons</span>
+    </div>
+    <div class="contentBlockElement"></div>
+  </div>
+  {{#each buttons}}
+    <div class="contentBlock">
+        <div class="contentBlockText">
+          <p>{{this.name}}</p>
+        </div>
+        <div class="contentBlockElement">
+          <button class="pulseButton" onclick="sendClick(this)" id={{this.id}}>pulse</button>
+        </div>
+      </div>
+  {{/each}}
+{{/if}}

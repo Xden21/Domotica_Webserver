@@ -1,0 +1,21 @@
+{{! Uses object, generates the buttons  }}
+<div class="tabItem" id={{name}}>
+  {{#if (and groups hasView)}}
+    <button class="accButton short" onclick="openSubGroup('{{name}}')" id="{{name}}AccButton">{{name}}</button>
+    <button class="viewButton short" onclick="openView('{{name}}')" id="{{name}}ViewButton"><i class="fas fa-angle-right fa-lg"></i></button>
+  {{else}}
+    {{#if groups}}
+      <button class="accButton" onclick="openSubGroup('{{name}}')" id="{{name}}AccButton">{{name}}</button>
+    {{else}}
+      <button class="viewButton" onclick="openView('{{name}}')" id="{{name}}ViewButton"><span>{{name}}</span> <i class="fas fa-angle-right fa-lg"></i></button>
+    {{/if}}
+  {{/if}}
+</div>
+
+{{#if groups}}
+  <div class="panel" id="{{name}}Panel">
+    {{#each groups}}
+      {{>groupBuilder this}}
+    {{/each}}
+  </div>
+{{/if}}
