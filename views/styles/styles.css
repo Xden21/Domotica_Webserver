@@ -65,6 +65,7 @@ button.accButton {
   text-align: left;
   cursor: pointer;
   transition: 0.3s;
+  -webkit-transition: 0.3s;
   font-size: 17px;
   flex: 1;
 }
@@ -84,6 +85,7 @@ button.viewButton {
   text-align: center;
   cursor: pointer;
   transition: 0.3s;
+  -webkit-transition: 0.3s;
   font-size: 17px;
   flex: 1;
 }
@@ -229,6 +231,7 @@ div.indicator {
   height: 28px;
   border-radius: 34px;
   transition: background-color 0.2s;  
+  -webkit-transition: 0.2s;
   position: relative;
   display: inline-block;
   margin: auto 0;
@@ -246,6 +249,7 @@ button.pulseButton {
   text-align: center;
   cursor: pointer;
   transition: 0.3s;
+  -webkit-transition: 0.3s;
   font-size: 17px;
   width: 80px;
 }
