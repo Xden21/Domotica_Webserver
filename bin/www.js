@@ -39,7 +39,7 @@ async function sendGroupData (group) {
   for (const input of group.inputs) {
     let coilValue
     try {
-      coilValue = await modbusConnection.readInput(input.id - 1)
+      coilValue = await modbusConnection.readInput(input.id)
       coilValue = coilValue.data[0]
     } catch (err) {
       console.log('Error on reading input.')
@@ -51,7 +51,7 @@ async function sendGroupData (group) {
   for (const slider of group.sliders) {
     let coilValue
     try {
-      coilValue = await modbusConnection.readCoil(slider.id - 1)
+      coilValue = await modbusConnection.readCoil(slider.id)
       coilValue = coilValue.data[0]
     } catch (err) {
       console.log('Error on reading coil.')
@@ -106,11 +106,11 @@ io.on('connection', (socket) => {
 
   socket.on('buttonClick', (coil) => {
     console.log('Pulsing coil: ', coil)
-    modbusConnection.writePulse(coil - 1).catch((err) => console.log('Write coil ' + coil + 'Error', err))
+    modbusConnection.writePulse(coil).catch((err) => console.log('Write coil ' + coil + 'Error', err))
   })
 
   socket.on('buttonToggle', (data) => {
-    modbusConnection.writeCoil(data.coil - 1, data.value).catch((err) => console.log('Write coil ' + data.coil + 'Error', err))
+    modbusConnection.writeCoil(data.coil, data.value).catch((err) => console.log('Write coil ' + data.coil + 'Error', err))
   })
 
   socket.on('start-refresh', () => {
