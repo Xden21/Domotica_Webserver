@@ -32,7 +32,7 @@ class ModbusClient {
   async writePulse (coilNumber) {
     try {
       await this.writeCoil(coilNumber, true)
-      await setTimeout(this.writeCoil(coilNumber, false), 100)
+      await setTimeout(this.writeCoil(coilNumber, false), 500)
     } catch (err) {
       console.log('Error on writing pulse')
     }
