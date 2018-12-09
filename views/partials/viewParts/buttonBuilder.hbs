@@ -12,7 +12,7 @@
           <p>{{this.name}}</p>
         </div>
         <div class="contentBlockElement">
-          <button class="pulseButton" onclick="sendClick(this)" id={{this.id}}>pulse</button>
+          <button class="pulseButton" onmousedown="sendBool(this, true)" onmouseup="sendBool(this, false)" id={{this.id}}>pulse</button>
         </div>
       </div>
   {{/each}}
