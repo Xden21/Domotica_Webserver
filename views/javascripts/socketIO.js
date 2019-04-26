@@ -11,11 +11,21 @@ var socket = io();
       receiveBoolToggle(coilObj.coil, coilObj.value);
     })
     
+    function sendClickTouch(event, button) {
+      event.preventDefault()
+      sendClick(button)
+    }
+
     /*
     * Sends click event to server.
     */
     function sendClick (button) {
       socket.emit('buttonClick', button.id)
+    }
+
+    function sendBoolTouch(event, toggleButton, bool) {
+      event.preventDefault()
+      sendBool(toggleButton, bool)
     }
 
     /*

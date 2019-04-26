@@ -1,6 +1,11 @@
 var lastViewGroup
 var lastAccGroup
 
+function openSubGroupTouch (event, groupname) {
+  event.preventDefault()
+  openSubGroup(groupname)
+}
+
 function openSubGroup (groupName) {
   if (isTopGroup(groupName)) {
     if(lastAccGroup) {
@@ -61,6 +66,11 @@ function openSubGroup (groupName) {
       lastAccGroup = groupName
     }
   }
+}
+
+function openViewTouch(event, groupname) {
+  event.preventDefault()
+  openView(groupname)
 }
 
 function openView (groupName) {

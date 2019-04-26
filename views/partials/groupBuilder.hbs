@@ -1,13 +1,13 @@
 {{! Uses object, generates the buttons  }}
 <div class="tabItem" id={{name}}>
   {{#if (and groups hasView)}}
-    <button class="accButton short" onclick="openSubGroup('{{name}}')" id="{{name}}AccButton">{{name}}</button>
-    <button class="viewButton short" onclick="openView('{{name}}')" id="{{name}}ViewButton"><i class="fas fa-angle-right fa-lg"></i></button>
+    <button class="accButton short" onclick="openSubGroup('{{name}}')" touchstart="openSubGroupTouch('{{name}}')" id="{{name}}AccButton">{{name}}</button>
+    <button class="viewButton short" onclick="openView('{{name}}')" touchstart="openViewTouch('{{name}}')" id="{{name}}ViewButton"><i class="fas fa-angle-right fa-lg"></i></button>
   {{else}}
     {{#if groups}}
-      <button class="accButton" onclick="openSubGroup('{{name}}')" id="{{name}}AccButton">{{name}}</button>
+      <button class="accButton" onclick="openSubGroup('{{name}}')" touchstart="openSubGroupTouch('{{name}}')" id="{{name}}AccButton">{{name}}</button>
     {{else}}
-      <button class="viewButton" onclick="openView('{{name}}')" id="{{name}}ViewButton"><span>{{name}}</span> <i class="fas fa-angle-right fa-lg"></i></button>
+      <button class="viewButton" onclick="openView('{{name}}')" touchstart="openViewTouch('{{name}}')" id="{{name}}ViewButton"><span>{{name}}</span> <i class="fas fa-angle-right fa-lg"></i></button>
     {{/if}}
   {{/if}}
 </div>
