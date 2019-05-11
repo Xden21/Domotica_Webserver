@@ -9,6 +9,8 @@ var debug = require('debug')('domitica-webserver:server')
 var http = require('http')
 var socketio = require('socket.io')
 
+var refreshStarted = false
+
 /**
  * Get port from environment and store in Express.
  */
@@ -66,6 +68,7 @@ async function stateRefresh () {
   if (connectionCount === 0 && refreshTimer) {
     console.log('Stopping refresh timer.')
     clearInterval(refreshTimer)
+    refreshStarted = false
     return
   }
   let coilList = getCoilList()
@@ -110,11 +113,15 @@ io.on('connection', (socket) => {
   })
 
   socket.on('buttonToggle', (data) => {
+    console.log('Toggling coil: ', data.coil, 'to value: ', data.value)
     modbusConnection.writeCoil(data.coil, data.value).catch((err) => console.log('Write coil ' + data.coil + 'Error', err))
   })
 
   socket.on('start-refresh', () => {
-    startStateRefresh()
+    if (refreshStarted === false) {
+      startStateRefresh()
+      refreshStarted = true
+    }
   })
 })
 

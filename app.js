@@ -32,7 +32,7 @@ var modbusConnection = new ModbusClient('192.168.0.25', '502')
 let coilList = []
 console.log('Reading coil list')
 coilListReader.refresh().then((res) => {
-  console.log('Coil list readed succesfully at ', new Date(Date.now()).toLocaleString())
+  console.log('Coil list read succesfully at ', new Date(Date.now()).toLocaleString())
   coilList = res
   startCoilListJob()
 }).catch((err) => {
@@ -40,9 +40,9 @@ coilListReader.refresh().then((res) => {
 })
 
 function startCoilListJob () {
-  scheduler.scheduleJob('? * * * *', () => { // Runs every hour at the time of the startup.
+  scheduler.scheduleJob('0 * * * *', () => { // Runs every hour at the time of the startup.
     coilListReader.refresh((res) => {
-      console.log('Coil list readed succesfully at ', Date.now().toLocaleString())
+      console.log('Coil list read succesfully at ', Date.now().toLocaleString())
       coilList = res
     })
   })

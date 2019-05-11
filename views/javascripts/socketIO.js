@@ -12,6 +12,7 @@ var socket = io();
     })
     
     function sendClickTouch(event, button) {
+      console.log('sending touch click')
       event.preventDefault()
       sendClick(button)
     }
@@ -24,6 +25,7 @@ var socket = io();
     }
 
     function sendBoolTouch(event, toggleButton, bool) {
+      console.log('sending touch toggle')
       event.preventDefault()
       sendBool(toggleButton, bool)
     }
